@@ -3,6 +3,18 @@
 // Typography
 // ---
 
+html {
+	font-size: 90%;
+
+	@include bp(sm) {
+		font-size: 100%;
+	}
+
+	@include bp(md) {
+		font-size: 110%;
+	}
+}
+
 body {
 	font-family: $body-font;
 	line-height: $line-height-base;

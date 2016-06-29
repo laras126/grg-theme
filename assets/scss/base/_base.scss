@@ -2,34 +2,32 @@
 // This file contains very basic styles.
 // -----------------------------------------------------------------------------
 
-/**
- * Set up a decent box model on the root element
- */
-html {
-  box-sizing: border-box;
+
+// ---
+// Base Site Styles
+// ---
+
+// Keep it mobile first, yo! Read this:
+// http://www.abookapart.com/products/mobile-first
+// Actually, just buy all of those books.
+
+// Anyways, here's how I like to structure my content styles:
+
+
+// Border box all the things:
+
+* {
+	 box-sizing: border-box;
 }
 
-/**
- * Make all elements from the DOM inherit from the parent box-sizing
- * Since `*` has a specificity of 0, it does not override the `html` value
- * making all elements inheriting from the root box-sizing value
- * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
- */
-*, *::before, *::after {
-  box-sizing: inherit;
-}
+// ---
+// General Selectors
+// ---
 
-/**
- * Basic styles for links
- */
-a {
-  color: $brand-color;
-  text-decoration: none;
-
-  @include on-event {
-    color: $text-color;
-    text-decoration: underline;
-  }
+body {
+  background-image: url(../img/prohib.png);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 img {
@@ -40,6 +38,28 @@ figure {
   margin: 0;
   padding: 0;
 }
+
+
+// ---
+// Header
+// ---
+
+// You might want to split this into your own partial!
+
+
+
+
+// ---
+// Main Site Content
+// ---
+
+
+// ---
+// Footer
+// ---
+
+
+
 
 // ---
 // Misc Utilities

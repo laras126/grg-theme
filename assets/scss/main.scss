@@ -25,7 +25,7 @@
   'layout/header',
   'layout/footer',
   'layout/sidebar',
-  'laout/forms';
+  'layout/forms';
 
 // 5. Components
 @import
@@ -42,7 +42,8 @@
 // 6. Page-specific styles
 @import
   'pages/home',
-  'pages/contact';
+  'pages/contact',
+  'pages/maintenance';
 
 // 7. Themes
 @import

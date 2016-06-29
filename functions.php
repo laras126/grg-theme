@@ -96,7 +96,8 @@ new StarterSite();
  **************************
  */
 
-
+ // Disable WordPress Admin Bar for all users but admins
+ show_admin_bar ( false );
 
 
 // Enqueue scripts
@@ -105,7 +106,7 @@ function grg_scripts() {
 	// Use jQuery from a CDN, enqueue in footer
 	if (!is_admin()) {
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', array(), null, true);
+		wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js', array(), null, true);
   	wp_enqueue_script('jquery');
 	}
 
