@@ -881,24 +881,22 @@ $(function() {
 
 $(document).ready( function() {
 
-// Responsive Navigation JS
-	var $nav_main = $('.nav-main'),
+	// Responsive Navigation JS
+	var $nav_main = $('.site-nav'),
 		  $nav_trigger = $('.nav-trigger'),
       $subnav_trigger = $('.menu-item-has-children > a');
 
 	$nav_trigger.on('click',function() {
-
-		$nav_main.toggleClass('active');
-		$nav_trigger.toggleClass('active');
+		$nav_main.toggleClass('open');
+		$nav_trigger.toggleClass('open');
 		return false;
 	});
-
 
 	$subnav_trigger.on('click',function(e) {
 		e.preventDefault();
     console.log(e);
 		var $this = $(this);
-		$this.toggleClass('active').next('ul').toggleClass('active');
+		$this.toggleClass('open').next('ul').toggleClass('open');
 	});
 
 });

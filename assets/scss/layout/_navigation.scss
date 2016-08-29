@@ -1,11 +1,26 @@
 .site-nav {
+  // transition: 0.5s all ease-in-out;
+  // background-color: yellow;
+}
+
+.site-nav {
+    max-height: 0;
+    // background-color: green;
+    overflow: hidden;
+    flex-direction: column;
     display: flex;
     align-items: center;
 
-		ul {
-			display: flex;
-	    align-items: flex-start;
-		}
+    @include bp(nav) {
+      flex-direction: row;
+      max-height: none;
+      margin-left: auto;
+
+  		ul {
+  			display: flex;
+  	    align-items: flex-start;
+  		}
+    }
 }
 
 .site-nav > ul > li {
@@ -54,7 +69,12 @@
     z-index: 1;
 }
 
-
+.nav-trigger {
+  margin-left: auto;
+  @include bp(nav) {
+    display: none;
+  }
+}
 
 .site-nav li:hover > .nav-drop {
   max-height: 100%;

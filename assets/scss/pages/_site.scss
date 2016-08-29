@@ -16,6 +16,10 @@
 .site-brand {
     display: flex;
     align-items: center;
+    width: 100%;
+    @include bp(nav) {
+      width: auto;
+    }
 }
 
 .site-logo {
