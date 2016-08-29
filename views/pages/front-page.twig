@@ -3,6 +3,25 @@
 
 {% block content %}
 
+<div class="contain-md">
+  <ul class="service-icons-list">
+
+    {% for icon in post.get_field('service_icons') %}
+
+      {% set connected_page = TimberPost(icon.connected_page) %}
+      <li class="service-icon">
+        <div class="service-icon-img">
+          <img src="{{TimberImage(icon.icon_id).src('thumbnail')}}" alt="">
+        </div>
+        <h5 class="service-icon-title">{{connected_page.title}}</h5>
+        <p class="service-icon-text">{{icon.text}}</p>
+        <a href="{{connected_page.link}}" class="service-icon-btn">{{icon.button_text}}</a>
+      </li>
+
+    {% endfor %}
+
+  </ul>
+</div>
 		{% if brokercheck_tf %}
 
 			<div class="brokercheck-bar">

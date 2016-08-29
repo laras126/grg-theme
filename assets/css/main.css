@@ -1240,6 +1240,37 @@ h1.article-title {
       -ms-flex-flow: row wrap;
           flex-flow: row wrap; }
 
+.service-icons-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+.service-icon {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex: 1 200px;
+      -ms-flex: 1 200px;
+          flex: 1 200px;
+  text-align: center; }
+
+.service-icon-img {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
 .fof {
   text-align: center;
   background-color: #16446C;
