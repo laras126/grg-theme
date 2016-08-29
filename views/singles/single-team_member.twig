@@ -1,0 +1,26 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="thumb-container">
+		<div class="thumb-img-wrap">
+		{% include 'blocks/srcset.twig' with { id: post.thumbnail.id } %}
+		</div>
+	</div>
+		<p>{{post.member_bio}}</p>
+
+		<p>Licenses & Designations: {{post.member_credentials}}</p>
+		<p>Address:
+			<address>
+		{{post.member_address}}
+		</address></p>
+		<p><a href="{{post.member_linkedin}}">LinkedIn</a></p>
+		<p><a href="mailto:{{post.member_email}}">{{post.member_email}}</a></p>
+		<p>Office Phone: <a href="tel:{{post.member_office_phone}}">{{post.member_office_phone}}</a></p>
+		<p>Mobile Phone: <a href="tel:{{post.member_mobile_phone}}">{{post.member_mobile_phone}}</a></p>
+				<p>
+					{{post.member_fax}}</p>
+					<p>
+						{{post.member_brokercheck}}</p>
+						<p>
+							{{post.member_brokercheck_notice}}</p>
+{% endblock %}

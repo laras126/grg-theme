@@ -17,8 +17,9 @@ $context['wp_title'] .= ' - ' . $post->title();
 $context['comment_form'] = TimberHelper::get_comment_form();
 $context['sidebar_class'] = '-has_sidebar';
 
+
 if (post_password_required($post->ID)){
 	Timber::render('single-password.twig', $context);
 } else {
-	Timber::render(array('singles/single-' . $post->ID . '.twig', 'single-' . $post->post_type . '.twig', 'singles/single.twig'), $context);
+	Timber::render(array('singles/single-' . $post->ID . '.twig', 'singles/single-' . $post->post_type . '.twig', 'singles/single.twig'), $context);
 }

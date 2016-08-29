@@ -1,0 +1,16 @@
+
+.hero {
+  color: $utility-white;
+  overflow: hidden;
+  background: $brand-blue;
+}
+.hero-image {
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+}

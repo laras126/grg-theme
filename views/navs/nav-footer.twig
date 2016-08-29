@@ -1,0 +1,8 @@
+<nav class="footer-nav nav-footer" role="navigation">
+		<ul>
+			{% for item in footer_nav.get_items %}
+				<li class="nav-item {{item.classes | join(' ')}}">
+					<a class="nav-item-link" href="{{item.link}}">{{item.title}}</a>
+			{% endfor %}
+		</ul>
+</nav> <!-- /.nav-main -->

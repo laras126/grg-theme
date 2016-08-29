@@ -14,20 +14,15 @@ class StarterSite extends TimberSite {
 		add_theme_support('post-formats');
 		add_theme_support('post-thumbnails');
 		add_theme_support('menus');
-
 		add_filter('timber_context', array($this, 'add_to_context'));
 		add_filter('get_twig', array($this, 'add_to_twig'));
-
 		add_action('init', array($this, 'grg_register_post_types'));
 		add_action('init', array($this, 'grg_register_taxonomies'));
+		add_action('init', array($this, 'grg_acf_utils'));
 		add_action('init', array($this, 'grg_register_menus'));
-		add_action('init', array($this, 'grg_register_widgets'));
+		add_action('widgets_init', array($this, 'register_sidebars'));
 		parent::__construct();
 	}
-
-
-	// Note that the following included files only need to contain the taxonomy/CPT/Menu arguments and register_whatever function.
-	// http://generatewp.com is nice
 
 	function grg_register_post_types() {
 			require('lib/custom-types.php');
@@ -45,42 +40,60 @@ class StarterSite extends TimberSite {
 			require('lib/menus.php');
 	}
 
+	function grg_acf_utils() {
+			require('lib/acf-utils.php');
+	}
+
 	function add_to_context($context) {
 
 		// Navs
 		$context['main_nav'] = new TimberMenu('main_nav');
-		$context['header_nav'] = new TimberMenu('header_nav');
 		$context['footer_nav'] = new TimberMenu('footer_nav');
 		$context['footer_widgets'] = Timber::get_sidebar('sidebar.php');
 
-		// ACF Options Page
-		$context['site_tagline'] = get_field('site_tagline', 'options');
-		// $context['callout_tf'] = get_field('callout_tf', 'options');
-		// $context['callout_bar'] = get_field('callout_bar', 'options');
+		// Site Wide Settings
+		// Callout Bar Data
+		$context['callout_tf'] = get_field('callout_tf', 'options');
+		$context['callout_text'] = get_field('callout_text', 'options');
 
-		$context['favicon_16_url'] = get_field('favicon_16', 'options');
-		$context['favicon_32_url'] = get_field('favicon_32', 'options');
+		// BrokerCheck Notice
+		$context['brokercheck_tf'] = get_field('brokercheck_tf', 'options');
+		$context['brokercheck_text'] = get_field('brokercheck_text', 'options');
 
-		// Social
+		// Site Options
+		$context['copyright'] = get_field('copyright', 'options');
+		$context['site_disclosure'] = get_field('site_disclosure', 'options');
+
+		// Social links array to display across the site
 		$social = array(
-			'twitter' => 'https://twitter.com/name',
-			'linkedin' => 'https://www.linkedin.com/in/name',
-			'rss' => 'https://feeds.feedburner.com/name'
+			'twitter' => 'https://twitter.com/grgretirement',
+			'facebook' => 'https://facebook.com/grgretirement,',
+			'linkedin' => 'https://www.linkedin.com/in/grgretirement',
+			'rss' => 'https://feedburner.com/grg'
 		);
 
+		// Add social array to site context
 		$context['social'] = $social;
 
-		// Site
+
+		// All Categories
+		$context['cats'] = Timber::get_terms('category');
+
+		// Posts page link
+		$context['posts_page_link'] = get_permalink(get_option('page_for_posts' ));
+
+		// This 'site' context below allows us to acces main site information like the site title or description.
 		$context['site'] = $this;
 
 		return $context;
 	}
 
+	// Here you can add your own fuctions to Twig. Don't worry about this section if you don't come across a need for it.
+	// See more here: http://twig.sensiolabs.org/doc/advanced.html
 	function add_to_twig($twig){
-		/* this is where you can add your own fuctions to twig */
-		$twig->addExtension(new Twig_Extension_StringLoader());
-		$twig->addFilter('myfoo', new Twig_Filter_Function('myfoo'));
-		return $twig;
+			$twig->addExtension(new Twig_Extension_StringLoader());
+			$twig->addFilter('myfoo', new Twig_Filter_Function('myfoo'));
+			return $twig;
 	}
 
 }
@@ -97,7 +110,7 @@ new StarterSite();
  */
 
  // Disable WordPress Admin Bar for all users but admins
- show_admin_bar ( false );
+ // show_admin_bar ( false );
 
 
 // Enqueue scripts
@@ -106,7 +119,7 @@ function grg_scripts() {
 	// Use jQuery from a CDN, enqueue in footer
 	if (!is_admin()) {
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js', array(), null, true);
+		wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js', array(), null, true);
   	wp_enqueue_script('jquery');
 	}
 
@@ -128,18 +141,30 @@ function grg_scripts() {
 add_action( 'wp_enqueue_scripts', 'grg_scripts' );
 
 
-
-
 	// Remove unused items from the Dashboard menu
 	function grg_remove_menu_items(){
-			remove_menu_page( 'edit.php' ); // Posts
+
 			remove_menu_page( 'edit-comments.php' ); // Posts
 			// remove_menu_page( 'users.php'); // Users
 	}
 	add_action( 'admin_menu', 'grg_remove_menu_items' );
 
 
+// Reset post thumbnail size *NEEDED FOR Timmy Plugin**
+set_post_thumbnail_size(0,0);
 
+// Register yoru image sizes with Timmy
+function get_image_sizes() {
+		return array(
+		'custom-4' => array(
+			'resize' => array( 370 ),
+			'srcset' => array( 2 ),
+			'sizes' => '(min-width: 992px) 33.333vw, 100vw',
+			'name' => 'Width 1/4 fix',
+			'post_types' => array( 'post', 'page' ),
+		),
+	);
+}
 
 
 
@@ -154,13 +179,6 @@ add_action('wp_head', 'grg_env_notice');
 
 
 
-// Add Options Page
-if( function_exists('acf_add_options_page') ) {
-	acf_add_options_page('Theme Settings');
-}
-
-
-
 
  // Add excerpts to pages
  function grg_add_excerpts_to_pages() {
@@ -169,20 +187,6 @@ if( function_exists('acf_add_options_page') ) {
  add_action( 'init', 'grg_add_excerpts_to_pages' );
 
 
-
-
- // Add a 'Very Simple' toolbar style for the WYSIWYG editor in ACF
- // http://www.advancedcustomfields.com/resources/customize-the-wysiwyg-toolbars/
- function grg_acf_wysiwyg_toolbar( $toolbars ) {
-
-	 $toolbars['Text Based'] = array();
-
-	 // Only one row of buttons
-	 $toolbars['Text Based'][1] = array('formatselect' , 'bold' , 'link' , 'italic' , 'unlink' );
-
-	 return $toolbars;
- }
- add_filter( 'acf/fields/wysiwyg/toolbars' , 'grg_acf_wysiwyg_toolbar'  );
 
 
 
@@ -267,6 +271,87 @@ if ( is_admin() ) { // check to make sure we aren't on the front end
 
 // Remove inline gallery styles
 add_filter( 'use_default_gallery_style', '__return_false' );
+
+
+// allow SVG uploads
+function allow_svg_mime_types( $mimes = array() ) {
+    $mimes['svg']  = 'image/svg+xml';
+		$mimes['svgz'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'allow_svg_mime_types');
+
+// Change WP-Login Logo
+function custom_login_logo() {
+	echo '<style type="text/css">
+		#login h1 a, .login h1 a {
+			background-image: url('.get_bloginfo('template_directory').'/assets/img/png/grg-icon-83.5x83.5@2x.png) 50% 50% no-repeat !important; }</style>';
+}
+add_action('login_head', 'custom_login_logo');
+
+
+
+
+
+
+
+// Custom Wordpress Dashboard
+// See: https://www.sitepoint.com/wordpress-dashboard-widgets-api/
+
+function add_dashboard_widget()
+{
+    wp_add_dashboard_widget("IFP", "GRG Website Information", "display_ifp_dashboard_widget");
+}
+
+function display_ifp_dashboard_widget()
+{
+	echo "
+	 <h3><strong>Accounts Information</strong></h3>
+	 <ul>
+	 	<li>Website Host: <a href='https://my.a2hosting.com/clientarea.php' target='blank'>A2 Hosting</a></li>
+	  <li>Domain Registrar: <a href='https://namecheap.com' target='blank'>Namecheap</a></li>
+		<li>Google: <a href='https://analytics.google.com'>Site Analytics</a> | <a href='https://www.google.com/business/' target='blank'>My Business</a></li>
+		<li>Social Media: <a href='https://twitter.com/'>Twitter</a> | <a href='https://linkedin.com'>LinkedIn</a></li>
+	 </ul>
+	 <hr/>
+
+	 <h3><strong>Compliance Portal</strong></h3>
+	 <ul>
+	 	<li>All website changes must be submitted through ComplianceMax via <a href='https://branchweb.lpl.com/WebShell/Default.aspx' target='blank'>LPL BranchWeb</a></li>
+	 </ul>
+	 <hr/>
+
+	 <h3><strong>Technical Support</strong></h3>
+	 <ul>
+	 	<li><a href='https://my.a2hosting.com/submitticket.php'>Website Support</a></li>
+	  <li><a href='mailto:chuck.teal@lpl.com'>LPL Email Support</a></li>
+		<li><a href='mailto:marketing@ifpartners.com'>Site functionality feature request</a></li>
+	 </ul>
+	 <hr/>
+
+	 <h3><strong>Resources</strong></h3>
+	 <ul>
+	 	<li><a href='https://codex.wordpress.org/First_Steps_With_WordPress' target='blank'>First Steps With WordPress</a> - A step-by-step tour through your WordPress site.</li>
+	 	<li><a href='#' target='blank'>Easy Wordpress Manual</a> - A simple manual to guide you through the process of editing your site content</li>
+		<li><a href='https://www.youtube.com/playlist?list=PL_9u00nsHteH2OBVX4YSU_HWWY_JSxFyj' target='blank'>WordPress Walkthrough Series 2015</a></li>
+		<li><a href='http://webdesign.tutsplus.com/tutorials/troubleshooting-wordpress-in-60-seconds--cms-25231' target='blank'>Troubleshooting WordPress in 60 Seconds</a></li>
+		<li><a href='https://www.youtube.com/user/wpbeginner' target='blank'>WPBeginner</a> - WordPress video tutorials for beginners</li>
+	 </ul>
+	 <hr/>
+
+	<h3><strong>WordPress Courses & Tutorials</strong></h3>
+	<ul>
+		<li><a href='https://teamtreehouse.com/' target='blank'>TeamTreehouse</a></li>
+		<li><a href='https://www.codeschool.com/' target='blank'>CodeSchool</a></li>
+		<li><a href='http://www.wpbeginner.com/category/wp-tutorials/' target='blank'>WPBeginner</a></li>
+		<li><a href='http://webdesign.tutsplus.com/categories/wordpress' target='blank'>Envatotuts+</a></li>
+	</ul>
+	<em>Information Last Updated: July 21, 2016</em>";
+}
+
+add_action("wp_dashboard_setup", "add_dashboard_widget");
+
+
 
 
 

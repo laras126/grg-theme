@@ -1,0 +1,13 @@
+<article class="tease tease-team_member">
+  <a href="{{post.link}}" class="thumb-link">
+    <div class="thumb-container">
+      <div class="thumb-img-wrap">
+        {% include 'blocks/srcset.twig' with { id: post.thumbnail.id } %}
+      </div>
+      <div class="thumb-caption">
+        <span class="member-name">{{post.member_name}}</span>
+        <span class="member-position">{{post.member_position}}</span>
+      </div>
+    </div>
+  </a>
+</article>

@@ -1,0 +1,22 @@
+{% extends 'base.twig' %}
+
+{% block block_content %}
+
+  {% if block.section_heading %}
+    <h3>{{block.section_heading}}</h3>
+  {% endif %}
+  {% if block.section_text %}
+    {{block.section_text|wpautop}}
+  {% endif %}
+
+  {% for id in block.items %}
+    {% set item = TimberPost(id) %}
+    {% set img = TimberImage(item.thumbnail) %}
+
+    {{item.title}}
+    {{item.excerpt}}
+    <!-- This would be your SVG uploaded as a featured image: -->
+    {{img.src}}
+  {% endfor %}
+
+{% endblock %}

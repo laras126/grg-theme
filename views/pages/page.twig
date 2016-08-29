@@ -1,26 +1,29 @@
 {% extends "base.twig" %}
 
 {% block header_content %}
-	<header class="article-header">
-		{% set img = TimberImage(post.hero_image) %}
-		<img class="hero-img" src="{{img.src|resize(1200,600)}}" alt="">
-		<div class="contain-sm">
-			<h1 class="article-title">{{post.title}}</h1>
-			<p class="article-tagline">{{post.main_tagline}}</p>
-			<p class="article-tagline">{{post.intro_blurb}}</p>
-		</div>
-	</header>
+    {% set img = TimberImage(post.fixed_image) %}
+    <header class="header-hero" style="background-image: url('{{img.src|resize(1200,600)}}')">
+      <noscript><img id="headerImageLoader" class="visually-hidden" src="{{img.src|resize(1200,600)}}" alt="Header Image"></noscript>
+      <div class="contain-md">
+        <!-- <div class="hero-content"> -->
+            <h1 class="hero-tagline">{{post.main_tagline}}</h1>
+            <p class="hero-sub_tagline">{{post.sub_tagline}}</p>
+            <p class="lead">{{post.intro_blurb}}</p>
+            <button class="btn -cta" href="{{post.big_button_link}}">{{post.big_button_text}}</button>
+        <!-- </div> -->
+      </div>
+    </header>
 {% endblock %}
 
 {% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-
-			<section class="article-content">
-				<div class="article-body">
-					{% include 'blocks/content-blocks.twig'	%}
-				</div>
-			</section>
-		</article>
-	</div><!-- /content-wrapper -->
+    <div class="content-wrapper">
+        <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+            <section class="article-content">
+                <div class="article-body">
+                    {% include 'blocks/content-blocks.twig' %}
+                </div>
+            </section>
+        </article>
+    </div>
+    <!-- /content-wrapper -->
 {% endblock %}

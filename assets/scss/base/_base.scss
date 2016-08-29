@@ -1,37 +1,38 @@
-// -----------------------------------------------------------------------------
-// This file contains very basic styles.
-// -----------------------------------------------------------------------------
-
-
-// ---
-// Base Site Styles
-// ---
-
-// Keep it mobile first, yo! Read this:
-// http://www.abookapart.com/products/mobile-first
-// Actually, just buy all of those books.
-
-// Anyways, here's how I like to structure my content styles:
-
-
-// Border box all the things:
-
-* {
-	 box-sizing: border-box;
+*, *:before, *:after {
+	 box-sizing: inherit;
 }
 
-// ---
-// General Selectors
-// ---
+html {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+}
 
 body {
-  background-image: url(../img/prohib.png);
-  background-size: cover;
-  background-attachment: fixed;
+	margin: 0;
+	padding: 0;
 }
 
-img {
+ul,
+li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+img,
+picture {
 	max-width: 100%;
+	font-style: italic;
+	vertical-align: middle;
+	display: inline-block;
+	border: 0;
+	height: auto;
+	-ms-interpolation-mode: bicubic;
 }
 
 figure {
@@ -39,33 +40,12 @@ figure {
   padding: 0;
 }
 
+::selection {
+	background-color: $digital-blue-light;
+	color: $utility-white;
+}
 
-// ---
-// Header
-// ---
-
-// You might want to split this into your own partial!
-
-
-
-
-// ---
-// Main Site Content
-// ---
-
-
-// ---
-// Footer
-// ---
-
-
-
-
-// ---
-// Misc Utilities
-// ---
-
-.edit-link {
-  @include meta($color-notice-warning);
-  font-weight: $font-weight-strong;
+::-moz-selection {
+	background-color: $digital-blue-light;
+	color: $utility-white;
 }

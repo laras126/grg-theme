@@ -1,33 +1,33 @@
 {% block html_head %}
-	{% include 'html-header.twig' %}
-	{% block head %}
-	{% endblock %}
-	</head>
+		{% include 'html-header.twig' %}
+		{% block head %}
+		{% endblock %}
+		</head>
 {% endblock %}
 
-	<body class="{{body_class}}" data-template="base.twig">
+	<body class="{{body_class}}" data-template="base.twig" id="pageTop">
 		<div class="visually-hidden">
 			{% include 'utility/svg-defs.svg' %}
 		</div>
-		<header class="site-header">
-			<div class="contain-lg">
-				{% block header %}
-					<div class="site-header-inner">
-						<h1 class="site-logo" role="banner">
-							<a class="site-logo-link" href="{{site.link}}" rel="home">{{site.name}}</a>
-							<pre>
-							{{dump(site)}}
-							</pre>
-						</h1>
-						<p class="site-description">{{site.description}}</p>
-						{% include 'navs/nav.twig' %}
 
-					</div>
-				{% endblock %}
+		{% if callout_tf %}
+			<div class="callout-bar">
+				<div class="wrapper">
+					{{callout_text|wpautop}}
+				</div>
 			</div>
-		</header>
+		{% endif %}
 
-		<main role="main" class="site-main">
+		<div class="contain-md">
+				<header class="site-header" role="banner">
+					{% block header %}
+						{% include 'headers/site_header.twig' %}
+					{% endblock %}
+				</header>
+		</div><!--./header-wrapper-->
+
+		<main id="content" class="site-main" role="main">
+
 			<div class="main-content {{sidebar_class}}">
 				{% block header_content %}{% endblock %}
 				{% block content %}
@@ -35,21 +35,30 @@
 				{% endblock %}
 				{% block footer_content %}{% endblock %}
 			</div>
+
 			{% if sidebar %}
-				<aside class="main-sidebar">
+				<aside class="site-sidebar">
 					{{sidebar}}
 				</aside>
 			{% endif %}
+
 		</main>
 
-		<footer class="site-footer">
-			{% block footer %}
-				<div class="wrapper">
+		<div class="contain-md">
+			<footer id="footer" class="site-footer" role="contentinfo">
+				{% block footer %}
 					{% include 'footers/footer.twig' %}
+					{{footer_widgets}}
 				</div>
 			{% endblock %}
 		</footer>
-		{{ function('wp_footer') }}
 
+		<div class="site-disclosure">
+			<div class="contain-sm">
+				{% include 'site-options/site-disclosure.twig' %}
+				<p>&copy; {{"now"|date('Y')}} {{copyright}}. All Rights Reserved.</p>
+			</div>
+		</div>
+		{{ function('wp_footer') }}
 	</body>
 </html>

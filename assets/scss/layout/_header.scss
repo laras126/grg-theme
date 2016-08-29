@@ -1,3 +1,20 @@
-// -----------------------------------------------------------------------------
-// This file contains all styles related to the header of the site/application.
-// -----------------------------------------------------------------------------
+.header-hero {
+  height: 620px;
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  color: $color-text-light;
+}
+
+.header-brand {
+  float: left;
+  position: relative;
+  display: table-row!important;
+}
+
+.header-tag {
+  margin: 0;
+  padding-left: 1.2rem;
+  padding-top: .45rem;
+}

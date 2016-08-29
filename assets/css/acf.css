@@ -1,0 +1,9 @@
+.wysiwyg-short iframe {
+  min-height: 0;
+  max-height: 60px;
+}
+
+.wysiwyg-medium iframe {
+  min-height: 0;
+  max-height: 120px;
+}

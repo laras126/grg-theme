@@ -1,4 +1,8 @@
-.article-title {
+.article-header {
+  font-family: $sans-serif;
+}
+
+h1.article-title {
   margin-top: 0;
   text-align: center;
   margin-bottom: $size-h3;
@@ -6,4 +10,12 @@
 
 .article-summary {
   font-size: $size-h5;
+}
+
+.social-share {
+  list-style-type: none;
+}
+
+.social-share li {
+  display: inline-block;
 }

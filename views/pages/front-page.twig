@@ -1,2 +1,16 @@
-
 {% extends "pages/page.twig" %}
+{% set is_home = true %}
+
+{% block content %}
+
+		{% if brokercheck_tf %}
+
+			<div class="brokercheck-bar">
+				<div class="wrapper">
+					{{brokercheck_text|wpautop}}
+				</div>
+			</div>
+
+		{% endif %}
+
+{% endblock %}

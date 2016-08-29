@@ -1,0 +1,19 @@
+{% extends "headers/page_header.twig" %}
+
+{% block content %}
+
+<div class="hero hero-video hero-video-placeholder hero-full-bkgd">
+
+	<img id="headerImageLoader" src="{{TimberImage(post.video_placeholder).src}}" alt="Header Image">
+
+	<video preload="auto" autoplay loop>
+		<source src="{{post.video}}" type="video/mp4">
+	</video>
+
+	<div class="hero-wrap">
+		{% include 'utility/hero-content.twig' %}
+	</div> <!-- /.hero-wrap -->
+
+</div> <!-- /.hero-video -->
+
+{% endblock %}

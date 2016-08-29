@@ -1,0 +1,25 @@
+<article role="main" class="tease tease-{{post.post_type}}">
+  <!-- Denotes more important information inside the article -->
+  <header class="tease-header">
+    {% block tease_header %}
+    {% endblock %}
+  </header>
+
+  <main>
+    {% block tease_content %}
+    {% if post.thumbnail.src %}
+			<img src="{{post.thumbnail.src}}" />
+		{% endif %}
+    {% endblock %}
+  </main>
+
+  <aside>
+    {% block tease_aside %}
+    {% endblock %}
+  </aside>
+
+  <footer class="tease-footer">
+    {% block tease_footer %}
+    {% endblock %}
+  </footer>
+</article>

@@ -1,0 +1,22 @@
+<div class="site-brand">
+    <div class="site-logo">
+        <a href="/" title="{{site.name}}" rel="home">
+            <!-- <img class="site-logo" src="{{site.theme.link}}/assets/img/svg/grg-logo.svg" alt="GRG Logo"> -->
+            {% include 'utility/svg.twig' with {prefix: 'logo', file: 'grg-logo'} %}
+        </a>
+    </div>
+</div>
+
+{% include 'navs/nav.twig' %}
+
+<ul class="site-social">
+    {% for type, url in social %}
+        <li>
+            <a href="{{url}}" target="blank">
+                <svg viewBox="0 0 100 100" class="icon icon-{{type}}">
+                    <use xlink:href="#icon-{{type}}"></use>
+                </svg>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

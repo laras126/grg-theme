@@ -1,0 +1,36 @@
+{% extends 'teases/tease.twig' %}
+
+{% block tease_header %}
+<div class="contain-sm">
+  {% if post.thumbnail.src %}
+      <img src="{{post.thumbnail.src|resize(400, 400)}}" alt="{{post.title}} Thumbnail">
+    {% endif %}
+    <h4 class="tease-title"><a href="{{post.link}}">{{post.title}}</a></h4>
+    <h5 class="tease-category"><a href="{{post.category}}"></a></h5>
+  </div>
+{% endblock %}
+
+{% block tease_content %}
+<div class="contain-sm">
+  <p>{{post.post_excerpt ? post.post_excerpt : post.header_summary}}</p>
+</div>
+{% endblock %}
+
+{% block tease_footer %}
+<div class="contain-sm">
+  <p class="byline">
+    <span class="name">By {{post.author}}</span>
+    <span class="date"><time class="updated" datetime="{{post.post_date|date('F j, Y')}}" pubdate></time></span>
+  </p>
+    {% include 'utility/edit-link.twig' %}
+  </div>
+{% endblock %}
+
+{% block tease_aside %}
+<div class="contain-sm">
+  <aside>
+    <h4>Share</h4>
+    {% include 'utility/share-btns.twig' %}
+  </aside>
+</div>
+{% endblock %}

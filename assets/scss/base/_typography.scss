@@ -4,20 +4,39 @@
 // ---
 
 html {
-	font-size: 90%;
+	font-size: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-overflow-scrolling: touch;
+	-webkit-tap-highlight-color: $digital-blue-dark;
+	-webkit-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+
 
 	@include bp(sm) {
-		font-size: 100%;
+		font-size: 90%;
 	}
 
 	@include bp(md) {
+		font-size: 100%;
+	}
+
+	@include bp(lg) {
 		font-size: 110%;
+	}
+
+	@include bp(xl) {
+		font-size: 120%;
 	}
 }
 
 body {
-	font-family: $body-font;
+	font-family: $font-body;
 	line-height: $line-height-base;
+	color: $color-text-dark;
+	text-rendering: optimizeLegibility;
 }
 
 a,
@@ -37,9 +56,10 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	line-height: $line-height-base;
-	font-family: $heading-font;
+	font-family: $font-heading;
+	font-weight: $font-weight-heading;
 	margin-bottom: 0;
+	line-height: $line-height-base;
 }
 
 h1 {
@@ -79,4 +99,37 @@ p {
 
 small {
 	font-size: $size-sml;
+}
+
+strong {
+	font-weight: normal;
+	font-weight: 700;
+}
+
+blockquote {
+	font-size: $size-h4;
+	font-style: italic;
+	overflow: visible;
+	margin: 0;
+	color: $color-accent-med;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+.lead {
+	font-size: $size-h4;
+}
+
+.hero-tagline {
+	font-size: 3.125em;
+}
+
+.hero-sub_tagline {
+	font-size: $size-h4;
+	font-weight: $font-weight-strong;
 }

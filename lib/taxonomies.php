@@ -40,3 +40,38 @@ $args = array(
 	'show_tagcloud'              => true,
 );
 register_taxonomy( 'page_category', array( 'page' ), $args );
+
+
+
+$role_labels = array(
+	'name'                       => _x( 'Roles', 'Taxonomy General Name', 'grg' ),
+	'singular_name'              => _x( 'Role', 'Taxonomy Singular Name', 'grg' ),
+	'menu_name'                  => __( 'Roles', 'grg' ),
+	'all_items'                  => __( 'All Roles', 'grg' ),
+	'parent_item'                => __( 'Parent Role', 'grg' ),
+	'parent_item_colon'          => __( 'Parent Role:', 'grg' ),
+	'new_item_name'              => __( 'New Role', 'grg' ),
+	'add_new_item'               => __( 'Add New Role', 'grg' ),
+	'edit_item'                  => __( 'Edit Role', 'grg' ),
+	'update_item'                => __( 'Update Role', 'grg' ),
+	'view_item'                  => __( 'View Role', 'grg' ),
+	'separate_items_with_commas' => __( 'Separate Role', 'grg' ),
+	'add_or_remove_items'        => __( 'Add or remove Roles', 'grg' ),
+	'choose_from_most_used'      => __( 'Choose from the most used Roles', 'grg' ),
+	'popular_items'              => __( 'Popular Roles', 'grg' ),
+	'search_items'               => __( 'Search Roles', 'grg' ),
+	'not_found'                  => __( 'Not Found', 'grg' ),
+	'no_terms'                   => __( 'No Roles', 'grg' ),
+	'items_list'                 => __( 'Roles list', 'grg' ),
+	'items_list_navigation'      => __( 'Roles list navigation', 'grg' ),
+);
+$role_args = array(
+	'labels'                     => $role_labels,
+	'hierarchical'               => true,
+	'public'                     => true,
+	'show_ui'                    => true,
+	'show_admin_column'          => true,
+	'show_in_nav_menus'          => true,
+	'show_tagcloud'              => true,
+);
+register_taxonomy( 'role', array( 'team_member' ), $role_args );

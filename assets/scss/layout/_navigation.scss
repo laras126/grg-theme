@@ -1,52 +1,79 @@
-.nav-main {
-	max-height: 0;
-	overflow: hidden;
-	transition: all 0.75s ease;
+.site-nav {
+    display: flex;
+    align-items: center;
 
-	&.active {
-		max-height: $screen-md;
-	}
-
-	@include bp(nav) {
-		max-height: none;
-	}
+		ul {
+			display: flex;
+	    align-items: flex-start;
+		}
 }
 
-.nav-items {
-	list-style-type: none;
-	padding-left: 0;
+.site-nav > ul > li {
+	padding-left: 20px;
+	font-size: $size-sml;
+  font-weight: $font-weight-strong;
+  @include upperspace;
 
-	@include bp(nav) {
-		@include grid;
-	}
+  a {
+    color: $color-link;
+  }
+
+  a:hover {
+    border-bottom: 2px solid $border-accent-light;
+    padding-bottom: 10px;
+    color: $color-link-hover;
+  }
 }
 
-	a.nav-item-link,
-	a.nav-trigger {
-		@include upperspace;
-		padding: $size-xsml;
+.site-nav li li {
+  padding-left: 0;
+	line-height: $size-h2;
+
+  &:hover {
+    color: $utility-white;
+  }
+
+  a:hover {
+    color: $color-link-hover;
+  }
+}
+
+.nav,
+.nav-drop {
+    align-self: center;
+    position: absolute;
+    max-height: 0;
+}
+
+.nav-drop {
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+    z-index: 1;
+}
+
+.site-nav li:hover > .nav-drop {
+  max-height: 100%;
+	background-color: $color-accent-vlight;
+	padding: 20px;
+}
+
+.open {
+    max-height: none;
+}
+
+// Dropdown Nav indicator
+.menu-item-has-children > a {
+	&:after {
+		content: "▾";
 		font-size: $size-sml;
-		color: $color-accent-vlight;
-		padding-top: $size-xsml;
-		padding-bottom: $size-xsml;
-		display: block;
 	}
+}
 
-
-// Link to open the nav
-
-a.nav-trigger {
-	margin-top: $size-xsml;
-	border-top: $border-accent;
-	border-bottom: $border-accent;
-	width: 100%;
-	text-align: center;
-	// @include upperspace;
-	// padding-top: $size-xsml;
-	// padding-bottom: $size-xsml;
-
-	@include bp(nav) {
-		display: none;
-	}
-
+// Breadcrumbs
+.main-breadcrumbs {
+  font-size: $size-sml;
+  margin-bottom: $size-base;
+  margin-top: $size-base;
+  padding-bottom: $size-sml;
 }

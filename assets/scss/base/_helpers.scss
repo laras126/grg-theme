@@ -4,38 +4,19 @@
 
 // These are non-semantic classes for quick formatting. In theory, it's best to remove these for production, but you know, in theory.
 
-.text-center {
-	text-align: center;
-}
-
-.text-left {
-	text-align: left;
-}
-
-.text-right {
-	text-align: right;
-}
+.text-left   { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right  { text-align: right !important; }
 
 // Based on WP's naming conventions
 
-.alignright {
-  float: right;
-}
-
-.alignleft {
-  float: left;
-}
-
-.aligncenter {
-  display: block;
-  margin: 0 auto;
-}
+.alignleft { float: left; }
+.aligncenter { display: block; margin: 0 auto; }
+.alignright { float: right; }
 
 // Layout helpers
 
-.full-image {
-  width: 100%;
-}
+.full-image { width: 100%; }
 
 .visually-hidden {
   position: absolute;
@@ -44,22 +25,21 @@
   opacity: 0;
 }
 
+.is-hidden { display: none !important; }
+.is-invisible { visibility: none !important; }
+
 
 // I also like to have some spacer classes. Again, scoff at their non-semantic-ness if you feel like it, but I find them immensely useful, particularly when working within a CMS.
 // Note that I use the $size-base unit from the sizing scale set in _variables.scss.
 
-.spacer-top {
-	margin-top: $size-base;
-}
-
-.spacer-bot {
-	margin-bottom: $size-base;
-}
+.spacer-top { margin-top: $size-base; }
+.spacer-bot { margin-bottom: $size-base; }
 
 // Misc
 
+// Environmental Notice
 .env-notice {
-  color: #FFF;
+  color: $utility-white;
   position: fixed;
   margin: 0;
   bottom: 0;
@@ -68,6 +48,7 @@
   @include upperspace;
   font-weight: $font-weight-strong;
   padding: $size-xsml $size-sml;
+	background-color: $utility-black;
 
   &.development {
     background-color: royalblue;
@@ -76,4 +57,28 @@
   &.staging {
     background-color: indianred;
   }
+}
+
+.edit-link {
+  @include meta($color-notice-warning);
+  font-weight: $font-weight-strong;
+}
+
+// Back to top
+.back-top {
+	padding-top: 7px;
+	text-align: center;
+	z-index: 9999999;
+	padding: 5px;
+	border-radius: 4px;
+	color: $utility-white;
+	display: inline-block;
+	height: 45px;
+	width: 45px;
+	position: fixed;
+	bottom: 30px;
+	right: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+	background: $digital-blue-dark no-repeat center 50%;
 }
