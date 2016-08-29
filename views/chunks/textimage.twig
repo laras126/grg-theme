@@ -1,0 +1,11 @@
+{% extends "chunks/chunk.twig" %}
+
+{% block content %}
+	{% if chunk.textimage_format == 'caption'%}
+		{{chunk.textimage_image}}
+		<p class="chunk--textimage__caption">{{chunk.textimage_caption}}</p>
+	{% elseif chunk.textimage_format == 'paragraph'%}
+		{{chunk.textimage_image}}
+		{{chunk.textimage_paragraph}}
+	{% endif %}
+{% endblock %}

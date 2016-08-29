@@ -1,0 +1,17 @@
+{% extends 'chunks/base.twig' %}
+
+{% block chunk_content %}
+
+<figure class="chunk-figure {{chunk.size}}">
+
+  {% include 'chunks/srcset.twig' with { id: chunk.image, class: 'full-image' } %}
+
+  {% if img.caption %}
+    <figcaption>
+      <p class="caption">{{img.caption}}</p>
+    </figcaption>
+  {% endif %}
+
+</figure>
+
+{% endblock %}

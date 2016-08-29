@@ -1,21 +1,21 @@
-{% extends "blocks/content-blocks.twig" %}
+{% extends "chunks/base.twig" %}
 
 {% block content %}
 
-	{% set type = block.list_type %}
-	{% set display = block.list_display %}
+	{% set type = chunk.list_type %}
+	{% set display = chunk.list_display %}
 
-	{% if block.list_title %}
-		<h4 class="list-title">{{block.list_title}}</h4>
+	{% if chunk.list_title %}
+		<h4 class="list-title">{{chunk.list_title}}</h4>
 	{% endif %}
 
-	{% if block.list_description %}
-		<p class="list-description">{{block.list_description}}</p>
+	{% if chunk.list_description %}
+		<p class="list-description">{{chunk.list_description}}</p>
 	{% endif %}
 
-	<ul class="block_list-list list--{{display}} list--{{type}}">
+	<ul class="chunk_list-list list--{{display}} list--{{type}}">
 
-		{% for item in block.list_type_freeform %}
+		{% for item in chunk.list_type_freeform %}
 			<li class="list-item--{{type}}">
 				<h5 class="list-item-title">{{item.item_title}}</h5>
 				<div class="list-item-desc">
@@ -27,7 +27,7 @@
 			</li>
 		{% endfor %}
 
-		{% for post in block.list_type_connected_content %}
+		{% for post in chunk.list_type_connected_content %}
 			<li>
 				{% include 'teases/_tease-' ~ post.post_type ~ '.twig' %}
 			</li>

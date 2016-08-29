@@ -1,0 +1,12 @@
+{% set img = TimberImage(id) %}
+
+<img
+  data-sizes="auto"
+  src="{{img.src|resize(50)}}"
+  data-src="{{img.src|resize(600)}}"
+  data-srcset="
+      {{img.src|resize(400)}} 300w,
+      {{img.src|resize(600)}} 600w,
+      {{img.src|resize(900)}} 900w,
+      {{img.src|resize(1200)}} 1200w"
+  class="lazyload lazyloaded {{class}}" />
