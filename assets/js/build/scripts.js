@@ -874,7 +874,6 @@
 	}
 })();
 
-
 // Attach Fastclick JS to document body
 $(function() {
     FastClick.attach(document.body);
@@ -882,13 +881,13 @@ $(function() {
 
 $(document).ready( function() {
 
-	// Responsive Navigation JS
+// Responsive Navigation JS
 	var $nav_main = $('.nav-main'),
 		  $nav_trigger = $('.nav-trigger'),
       $subnav_trigger = $('.menu-item-has-children > a');
 
 	$nav_trigger.on('click',function() {
-		console.log('poo');
+
 		$nav_main.toggleClass('active');
 		$nav_trigger.toggleClass('active');
 		return false;
@@ -903,3 +902,4 @@ $(document).ready( function() {
 	});
 
 });
+
