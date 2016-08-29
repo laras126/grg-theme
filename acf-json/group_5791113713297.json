@@ -1,0 +1,407 @@
+{
+    "key": "group_5791113713297",
+    "title": "Site Options",
+    "fields": [
+        {
+            "key": "field_579115be23393",
+            "label": "Global",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_579115e323394",
+            "label": "Show Callout Bar?",
+            "name": "callout_tf",
+            "type": "true_false",
+            "instructions": "Display callout bar across all pages?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Display callout bar message",
+            "default_value": 1
+        },
+        {
+            "key": "field_5791196b30979",
+            "label": "Callout Bar Text",
+            "name": "callout_text",
+            "type": "wysiwyg",
+            "instructions": "Text to appear in the notification bar.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_579115e323394",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "links_only",
+            "media_upload": 0
+        },
+        {
+            "key": "field_5791130a2338d",
+            "label": "Copyright",
+            "name": "copyright",
+            "type": "text",
+            "instructions": "Add your company name here. This will appear with the copyright symbol and by the date.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Garnett Retirement Group",
+            "placeholder": "",
+            "prepend": "\u00a9",
+            "append": 2016,
+            "maxlength": ""
+        },
+        {
+            "key": "field_57bdb285c1acf",
+            "label": "Style",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_57bdb298c1ad0",
+            "label": "Primary Logo",
+            "name": "primary_logo",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "svg"
+        },
+        {
+            "key": "field_57bdb2cac1ad1",
+            "label": "Secondary Logo",
+            "name": "secondary_logo",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "svg"
+        },
+        {
+            "key": "field_57bdb2dac1ad2",
+            "label": "Brand Mark",
+            "name": "brand_mark",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "svg"
+        },
+        {
+            "key": "field_57bdb30cc1ad3",
+            "label": "Headings Color",
+            "name": "headings_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
+            "key": "field_579112dc2338c",
+            "label": "Social Media Links",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_579114172338f",
+            "label": "Twitter Handle",
+            "name": "twitter",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 50,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "@",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_5791143b23390",
+            "label": "Instagram Username",
+            "name": "instagram",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 50,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_5791145123391",
+            "label": "Facebook Name",
+            "name": "facebook",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 50,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_5791147123392",
+            "label": "LinkedIn Username",
+            "name": "linkedin",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 50,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_57927dbc7e002",
+            "label": "YouTube Account",
+            "name": "youtube",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 50,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_579286f6e2024",
+            "label": "RSS",
+            "name": "rss",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 50,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_57bdb3bccba77",
+            "label": "Regulatory",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_57b473394f95d",
+            "label": "BrokerCheck",
+            "name": "brokercheck_tf",
+            "type": "true_false",
+            "instructions": "Enable required FINRA BrokerCheck notice on Homepage.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Display BrokerCheck Notice",
+            "default_value": 1
+        },
+        {
+            "key": "field_57b4733c4f95e",
+            "label": "BrokerCheck Text",
+            "name": "brokercheck_text",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_57b473394f95d",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Check the background of Our Firm and Investment Professionals on <a href=\"http:\/\/brokercheck.finra.org\/\" target=\"blank\">FINRA's Broker\/Check<\/a>.",
+            "tabs": "all",
+            "toolbar": "links_only",
+            "media_upload": 0
+        },
+        {
+            "key": "field_579113722338e",
+            "label": "Site Disclosure",
+            "name": "site_disclosure",
+            "type": "wysiwyg",
+            "instructions": "Add or update your required disclosure. This will appear at the bottom of your website across all pages.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "links_only",
+            "media_upload": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "site-options"
+            },
+            {
+                "param": "current_user_role",
+                "operator": "==",
+                "value": "administrator"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1472508740
+}

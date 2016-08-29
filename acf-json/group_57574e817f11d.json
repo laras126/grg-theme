@@ -1,0 +1,243 @@
+{
+    "key": "group_57574e817f11d",
+    "title": "Page Header",
+    "fields": [
+        {
+            "key": "field_57977fe846ad0",
+            "label": "Header Display",
+            "name": "header_display",
+            "type": "radio",
+            "instructions": "Select the type of page intro you would like.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "text": "Text Only",
+                "image": "Header Image",
+                "video": "Video"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_57574efa100a5",
+            "label": "Image (1200 x 800)",
+            "name": "fixed_image",
+            "type": "image",
+            "instructions": "Upload an image for the header of the home page. The focal point should be on the right since text will be overlaid on the left.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 33,
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_57574f631ffcb",
+            "label": "Main Tagline",
+            "name": "main_tagline",
+            "type": "wysiwyg",
+            "instructions": "A few, catchy words describing this page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "wysiwyg-small",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "links_only",
+            "media_upload": 0
+        },
+        {
+            "key": "field_57574fa5b4fb2",
+            "label": "Sub Tagline",
+            "name": "sub_tagline",
+            "type": "wysiwyg",
+            "instructions": "A sentence or two expanding on the main tagline.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "wysiwyg-small",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "links_only",
+            "media_upload": 0
+        },
+        {
+            "key": "field_5797804346ad1",
+            "label": "Video",
+            "name": "video",
+            "type": "url",
+            "instructions": "The link to the video.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_57977fe846ad0",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5797807246ad2",
+            "label": "Video Placeholder",
+            "name": "video_placeholder",
+            "type": "image",
+            "instructions": "A placeholder image for the video, this will display on phones. Dimensions should be 1200x800.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_57977fe846ad0",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_579780a246ad3",
+            "label": "Text Only Header",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_57977fe846ad0",
+                        "operator": "==",
+                        "value": "text"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "The \"Text Only\" header will display the page title, tagline, and summary.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_57b70f20d9ff0",
+            "label": "Big Button Text",
+            "name": "big_button_text",
+            "type": "text",
+            "instructions": "Call to Action Button Title",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Get Started",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_57b70f3fd9ff1",
+            "label": "Big Button Link",
+            "name": "big_button_link",
+            "type": "url",
+            "instructions": "Call to Action Button Link",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "http:\/\/",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            },
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "custom_fields",
+        "discussion",
+        "comments",
+        "revisions",
+        "author",
+        "format",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1472508732
+}
