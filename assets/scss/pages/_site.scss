@@ -115,3 +115,11 @@
     }
   }
 }
+
+
+.team-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+.team-left {}
+.team-right {}

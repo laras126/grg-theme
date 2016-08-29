@@ -1,0 +1,259 @@
+{
+    "key": "group_577e94730e82b",
+    "title": "Team Member Biography",
+    "fields": [
+        {
+            "key": "field_577e9536ea7b4",
+            "label": "Full Name",
+            "name": "member_name",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.333",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_577e9587ea7b6",
+            "label": "Position",
+            "name": "member_position",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.333",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_577e9601ea7b8",
+            "label": "Email Address",
+            "name": "member_email",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3333",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_577e9560ea7b5",
+            "label": "LinkedIn Profile URL",
+            "name": "member_linkedin",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_577e963eea7ba",
+            "label": "Mobile Phone",
+            "name": "member_mobile_phone",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "+1",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_577e9620ea7b9",
+            "label": "Office Phone",
+            "name": "member_office_phone",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "+1",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_577e9658ea7bb",
+            "label": "Office Fax",
+            "name": "member_fax",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_577e95b1ea7b7",
+            "label": "Office Location",
+            "name": "member_address",
+            "type": "google_map",
+            "instructions": "Input your office address.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "center_lat": "",
+            "center_lng": "",
+            "zoom": 17,
+            "height": ""
+        },
+        {
+            "key": "field_577e9696ea7bd",
+            "label": "FINRA BrokerCheck",
+            "name": "brokercheck_tf",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "wysiwyg-short",
+                "id": ""
+            },
+            "message": "Enable required FINRA BrokerCheck notice for licensed investment professionals.",
+            "default_value": 1
+        },
+        {
+            "key": "field_57912378293f7",
+            "label": "BrokerCheck Notice",
+            "name": "brokercheck_text",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_577e9696ea7bd",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "100",
+                "class": "wysiwyg-short",
+                "id": ""
+            },
+            "default_value": "Check the background of Our Firm and Investment Professionals on <a href=\"http:\/\/brokercheck.finra.org\/\" target=\"blank\">FINRA's Broker\/Check<\/a>.",
+            "tabs": "all",
+            "toolbar": "links_only",
+            "media_upload": 0
+        },
+        {
+            "key": "field_577e94e7ea7b3",
+            "label": "Team Member Biography",
+            "name": "member_bio",
+            "type": "wysiwyg",
+            "instructions": "Keep your bio relevant and professional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "links_only",
+            "media_upload": 0
+        },
+        {
+            "key": "field_577e966bea7bc",
+            "label": "Licenses & Designations",
+            "name": "member_credentials",
+            "type": "wysiwyg",
+            "instructions": "List all currently held licenses and designations.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "very_simple",
+            "media_upload": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "team_member"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "custom_fields",
+        "discussion",
+        "comments",
+        "author",
+        "format",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1472508155
+}

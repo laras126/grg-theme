@@ -705,24 +705,25 @@ i {
 
 .site-nav > ul > li {
   padding-left: 20px;
-  font-size: 0.8rem;
+  padding-right: 20px;
   font-weight: 700;
+  font-size: 14px;
   letter-spacing: 1px;
   text-transform: uppercase; }
   .site-nav > ul > li a {
-    color: #16446C; }
+    color: #333333; }
   .site-nav > ul > li a:hover {
-    border-bottom: 2px solid #e4e4e3;
-    padding-bottom: 10px;
-    color: #1a5181; }
+    border-bottom: 2px solid #16446C;
+    color: #16446C; }
 
 .site-nav li li {
   padding-left: 0;
-  line-height: 2.2rem; }
+  line-height: 1.8rem; }
   .site-nav li li:hover {
-    color: #f2f2f2; }
+    color: #16446C; }
   .site-nav li li a:hover {
-    color: #1a5181; }
+    color: #16446C;
+    border-bottom: 2px solid #16446C; }
 
 .nav,
 .nav-drop {
@@ -737,12 +738,12 @@ i {
       -ms-flex-direction: column;
           flex-direction: column;
   overflow: hidden;
-  transition: all 0.2s ease-in;
   z-index: 1; }
 
 .site-nav li:hover > .nav-drop {
   max-height: 100%;
-  background-color: #f2f2f2;
+  background-color: #e4e4e3;
+  border-bottom: 4px solid #93c596;
   padding: 20px; }
 
 .open {
@@ -1208,6 +1209,14 @@ h1.article-title {
     border-bottom: 1px dotted #f2f2f2; }
     .brokercheck-bar a:hover {
       color: #f2f2f2; }
+
+.team-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap; }
 
 .fof {
   text-align: center;

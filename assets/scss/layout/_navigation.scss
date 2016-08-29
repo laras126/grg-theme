@@ -10,31 +10,34 @@
 
 .site-nav > ul > li {
 	padding-left: 20px;
-	font-size: $size-sml;
+  padding-right: 20px;
   font-weight: $font-weight-strong;
+	font-size: 14px;
   @include upperspace;
 
+
   a {
-    color: $color-link;
+    color: $color-accent-dark;
   }
 
   a:hover {
-    border-bottom: 2px solid $border-accent-light;
-    padding-bottom: 10px;
-    color: $color-link-hover;
+    border-bottom: 2px solid $color-link;
+    color: $color-link;
   }
 }
 
 .site-nav li li {
   padding-left: 0;
-	line-height: $size-h2;
+	line-height: $size-h3;
 
   &:hover {
-    color: $utility-white;
+    color: $color-link;
   }
 
   a:hover {
-    color: $color-link-hover;
+    color: $color-link;
+    border-bottom: 2px solid $color-link;
+
   }
 }
 
@@ -48,14 +51,17 @@
 .nav-drop {
     flex-direction: column;
     overflow: hidden;
-    transition: all 0.2s ease-in;
     z-index: 1;
 }
 
+
+
 .site-nav li:hover > .nav-drop {
   max-height: 100%;
-	background-color: $color-accent-vlight;
+	background-color: $color-accent-light;
+  border-bottom: 4px solid $brand-green;
 	padding: 20px;
+
 }
 
 .open {
