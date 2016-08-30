@@ -3,33 +3,70 @@
 
 {% block content %}
 
-<div class="contain-md">
-  <ul class="service-icons-list">
+  <section class="front-page-section">
+    <div class="contain-md">
 
-    {% for icon in post.get_field('service_icons') %}
+      <ul class="service-icons-list">
+        {% for icon in post.get_field('service_icons') %}
+          {% set connected_page = TimberPost(icon.connected_page) %}
+          <li class="service-icon">
+            <div class="service-icon-img">
+              <img src="{{TimberImage(icon.icon_id).src('thumbnail')}}" alt="">
+            </div>
+            <h5 class="service-icon-title">{{connected_page.title}}</h5>
+            <p class="service-icon-text">{{icon.text}}</p>
+            <a href="{{connected_page.link}}" class="service-icon-btn">{{icon.button_text}}</a>
+          </li>
+        {% endfor %}
+      </ul>
 
-      {% set connected_page = TimberPost(icon.connected_page) %}
-      <li class="service-icon">
-        <div class="service-icon-img">
-          <img src="{{TimberImage(icon.icon_id).src('thumbnail')}}" alt="">
-        </div>
-        <h5 class="service-icon-title">{{connected_page.title}}</h5>
-        <p class="service-icon-text">{{icon.text}}</p>
-        <a href="{{connected_page.link}}" class="service-icon-btn">{{icon.button_text}}</a>
-      </li>
+    </div>
+  </section>
 
-    {% endfor %}
+  <section class="front-page-section">
+    <div class="contain-md">
 
-  </ul>
-</div>
-		{% if brokercheck_tf %}
+      <ul class="process-items-list">
+        {% for item in post.get_field('process_items') %}
+          <li class="process-item">
+            <h5 class="process-item-title">{{item.item_title}}</h5>
+            <p class="process-item-text">{{item.item_text}}</p>
+          </li>
+        {% endfor %}
+      </ul>
 
-			<div class="brokercheck-bar">
-				<div class="wrapper">
-					{{brokercheck_text|wpautop}}
-				</div>
-			</div>
+    </div>
+  </section>
 
-		{% endif %}
+  <section class="front-page-section -gray">
+    <div class="contain-md">
+
+      <p class="front-page-section-subtitle">From the Blog</p>
+      <h3 class="front-page-section-title">Stay Up to Date</h3>
+
+      <ul class="featured-posts-list">
+        {% for id in post.featured_blog_posts %}
+          <li class="featured-post">
+            {% set feature = TimberPost(id) %}
+            <h5>{{feature.title}}</h5>
+            <p>{{feature.post_excerpt}}</p>
+            <a href="{{feature.link}}">Read More</a>
+          </li>
+        {% endfor %}
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  {% if brokercheck_tf %}
+
+  	<div class="brokercheck-bar">
+  		<div class="wrapper">
+  			{{brokercheck_text|wpautop}}
+  		</div>
+  	</div>
+
+  {% endif %}
 
 {% endblock %}

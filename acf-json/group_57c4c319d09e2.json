@@ -16,8 +16,8 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": "",
-            "max": "",
+            "min": 3,
+            "max": 3,
             "layout": "block",
             "button_label": "Add Icon",
             "sub_fields": [
@@ -106,6 +106,92 @@
                     "ui": 1
                 }
             ]
+        },
+        {
+            "key": "field_57c4c9f987e99",
+            "label": "Process Items",
+            "name": "process_items",
+            "type": "repeater",
+            "instructions": "Add the text and titles for the \"Our Process\" items. Numbers will automatically display.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": "",
+            "max": "",
+            "layout": "block",
+            "button_label": "Add Item",
+            "sub_fields": [
+                {
+                    "key": "field_57c4ca2c87e9a",
+                    "label": "Item Title",
+                    "name": "item_title",
+                    "type": "text",
+                    "instructions": "A few word title.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33.3333",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_57c4ca4387e9b",
+                    "label": "Item Description",
+                    "name": "item_text",
+                    "type": "textarea",
+                    "instructions": "One to two sentence description of the item.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "66.666666",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 2,
+                    "new_lines": "wpautop"
+                }
+            ]
+        },
+        {
+            "key": "field_57c4cc564bf7d",
+            "label": "Featured Blog Posts",
+            "name": "featured_blog_posts",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": [],
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": 3,
+            "max": 3,
+            "return_format": "id"
         }
     ],
     "location": [
@@ -125,5 +211,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1472513475
+    "modified": 1472515261
 }

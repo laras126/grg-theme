@@ -1,4 +1,6 @@
-.service-icons-list {
+.service-icons-list,
+.process-items-list,
+.featured-posts-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -6,11 +8,16 @@
   justify-content: center;
 }
 
-.service-icon {
+
+.service-icon,
+.process-item {
   display: flex;
   flex-direction: column;
-  flex: 1 200px;
+}
+
+.service-icon {
   text-align: center;
+  flex: 1 200px;
 }
 
 .service-icon-img {
@@ -28,4 +35,38 @@
 
 .service-icon-text {
 
+}
+
+
+// Process Items
+
+.process-items-list {
+  flex-wrap: wrap;
+}
+
+.process-item {
+  width: 50%;
+}
+
+.process-item-title {
+
+}
+
+.process-item-text {
+
+}
+
+
+
+// Section Styles
+
+.front-page-section {
+  &.-gray {
+    background-color: gray;
+  }
+}
+
+.front-page-section-title,
+.front-page-section-subtitle {
+  text-align: center;
 }
